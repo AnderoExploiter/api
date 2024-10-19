@@ -11,7 +11,7 @@ class Main(Resource):
 
 
 api.add_resourse(Main, "/api/main")
-
+api.init_app(app)
 
 if __name__ == "__name__":
     app.run(debug=True)
