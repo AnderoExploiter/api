@@ -1,15 +1,18 @@
-from flask import Flask
-from flask_restful import Api, Resource  # Исправлено: 'fleask_restful' на 'flask_restful'
+from flask import Flask, jsonify
 
 app = Flask(__name__)
-api = Api(app)  # Инициализация API с приложением
 
-class Main(Resource):
-    def get(self):
-        return {"info": "someinfo", "num": 56}
+# Хранилище данных пользователей
+users = [
+    {"name": "Alice", "age": 30},
+    {"name": "Bob", "age": 25},
+    {"name": "Charlie", "age": 35}
+]
 
-# Исправлено: 'add_resourse' на 'add_resource'
-api.add_resource(Main, "/api/main")
+# Эндпоинт для получения списка пользователей
+@app.route('/api/users', methods=['GET'])
+def get_users():
+    return jsonify(users), 200
 
-if __name__ == "__main__":  # Исправлено: '__name__' на '__main__'
+if __name__ == '__main__':
     app.run(debug=True)
