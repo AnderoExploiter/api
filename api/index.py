@@ -1,11 +1,17 @@
 from flask import Flask
+from fleask_restful import Api, Resource
 
 app = Flask(__name__)
+api = Api()
 
-@app.route('/')
-def home():
-    return 'Hello, World!'
+class Main(Resource):
+    def get(self):
+        return {"info": "someinfo", "num": 56}
 
-@app.route('/about')
-def about():
-    return 'About'
+
+
+api.add_resourse(Main, "/api/main")
+
+
+if __name__ == "__name__":
+    app.run(debug=True)
