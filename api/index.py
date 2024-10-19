@@ -1,17 +1,15 @@
 from flask import Flask
-from fleask_restful import Api, Resource
+from flask_restful import Api, Resource  # Исправлено: 'fleask_restful' на 'flask_restful'
 
 app = Flask(__name__)
-api = Api()
+api = Api(app)  # Инициализация API с приложением
 
 class Main(Resource):
     def get(self):
         return {"info": "someinfo", "num": 56}
 
+# Исправлено: 'add_resourse' на 'add_resource'
+api.add_resource(Main, "/api/main")
 
-
-api.add_resourse(Main, "/api/main")
-api.init_app(app)
-
-if __name__ == "__name__":
+if __name__ == "__main__":  # Исправлено: '__name__' на '__main__'
     app.run(debug=True)
