@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 # Хранилище данных пользователей с ID
 users = [
-    {"id": 1, "name": "Alice", "age": 30},
+    {"id": 1, "User_Name": "Augustin_The2nds", "Executer": "Solara", "Script": "Script Here"},
     {"id": 2, "name": "Bob", "age": 25},
     {"id": 3, "name": "Charlie", "age": 35}
 ]
